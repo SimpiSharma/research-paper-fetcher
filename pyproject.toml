@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "pubmed-fetcher"
+version = "1.0.0"
+description = "Fetch research papers from PubMed with pharmaceutical/biotech company affiliations"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "pubmed_fetcher"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.28.0"
+python-dateutil = "^2.8.2"
+pandas = "^1.5.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+black = "^22.0.0"
+flake8 = "^5.0.0"
+mypy = "^0.991"
+
+[tool.poetry.scripts]
+get-papers-list = "pubmed_fetcher.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
